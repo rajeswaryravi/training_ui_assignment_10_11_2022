@@ -1,0 +1,374 @@
+Assignment1
+---------------------------------------------
+---------------------------------------------
+
+HTML
+------------------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS DEMO</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+      <div class="header"><p>Header</p></div>
+    </header>
+  <div>
+    <section class="content">
+      <div class="left_section">
+        <p>Aside</p>
+      </div>
+      <div class="right_section">
+     <div class="image1"><p>Image</p></div>
+     <div class="image2"><p>Image</p></div>
+     <div class="image3"><p>Image</p></div>
+     </div>
+      <section>
+        </div>
+      <div>
+        <footer>
+          <div class="footer"><p>Footer</p>
+         </footer>
+      </div>
+</body>
+</html>
+
+
+SCSS
+---------------------------------
+
+/*Variables*/
+$bg:pink;
+$bgheader:#6cd4c4;
+$textalign:center;
+$bgleftsection:#0ba798;
+$bgrightsection:#eb6464;
+$bgimages:#b6afaf;
+
+/*mixin*/
+@mixin important-text {
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  text-align:center;
+}
+
+@mixin flex-box{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+}
+/*interpolation*/
+$c:"color";
+
+body{
+ background-color:$bg;
+}
+.header,.footer{
+  @include important-text;
+  width:100%;
+  height:70px;
+  background-#{$c}:$bgheader;
+  }
+.content{
+  @include flex-box;
+}
+.left_section{
+  width:300px;
+  height:350px;
+  background-#{$c}:$bgleftsection;
+  margin-top:20px;
+  }
+.left_section p{
+  @include important-text;
+}
+.right_section{
+  width:58em;
+  height:350px;
+  background-color:$bgrightsection;
+  margin-top:20px;
+  @include flex-box;
+  justify-content:space-evenly;
+  flex-direction:column;
+}
+.right_section p{
+  @include important-text;
+  flex-wrap:wrap;
+}
+.right_section{
+  width:58em;
+  height:350px;
+  background-color:$bgrightsection;
+  margin-top:20px;
+  @include flex-box;
+  justify-content:space-around;
+}
+
+.image1,.image2,.image3{
+  width:10rem;
+  height:5rem;
+  background-color:$bgimages;
+}
+
+
+ASSIGNMENT 2
+--------------------------------------------
+--------------------------------------------
+
+HTML
+--------------------
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="section1">
+        1
+      </div>
+      <div class="section2">
+        <div class="section2_firstrow">
+          2
+        </div>
+        <div class="section2_secondrow">
+          <div class="section2_secondrow_firstcolumn">
+            3
+          </div>
+          <div class="section2_secondrow_secondcolumn">
+            <div class="section2_secondrow_secondcolumn_firstrow">
+              4a
+            </div>
+            <div class="section2_secondrow_secondcolumn_secondrow">
+              4b
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+SCSS
+-------------------------------
+
+/*variables*/
+$width:100%;
+$height:100%;
+
+/*Mixin*/
+@mixin flex($align: center, $direction: row) {
+  display: flex;
+  justify-content: $align;
+  flex-direction: $direction;
+  align-items: center;
+}
+/*interpolation*/
+$c:"color";
+
+body {
+  @include flex;
+  color: #fff;
+}
+.container {
+  @include flex(space-evenly);
+  width: 700px;
+  height: 300px;
+  background-#{$c}: #9e9c9c;
+}
+.section1 {
+  @include flex;
+  background-#{$c}: #e65151;
+  width: 35%;
+  height: 90%;
+}
+.section2 {
+  @include flex(space-between, column);
+  width: 55%;
+  height: 90%;
+}
+.section2_firstrow {
+  @include flex;
+  background: #a4f15c;
+  width: $width;
+  height: 50%;
+}
+.section2_secondrow {
+  @include flex(space-between, row);
+  width: $width;
+  height: 40%;
+}
+.section2_secondrow_firstcolumn {
+  @include flex;
+  background-#{$c}: #ffc0cb;
+  width: 52%;
+  height: $height;
+}
+.section2_secondrow_secondcolumn {
+  @include flex(space-between, column);
+  width: 40%;
+  height: $height;
+}
+.section2_secondrow_secondcolumn_firstrow{
+  @include flex;
+  background-#{$c}: #5273df;
+  width: $width;
+  height:40%;
+}
+.section2_secondrow_secondcolumn_secondrow {
+  @include flex;
+  background-#{$c}: #5273df;
+  width: $width;
+  height:40%;
+}
+
+ASSIGNMENT3
+----------------------------------------------
+-----------------------------------------------
+
+HTML
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="section2_secondrow_secondcolumn">
+            <div class="section1_firstrow_firstcolumn_firstrow">
+             1
+            </div>
+            <div class="section1_firstrow_firstcolumn_secondrow">
+              4
+            </div>
+          </div>
+      <div class="section2">
+        <div class="section2_secondrow">
+          <div class="section2_secondrow_firstcolumn">
+            2
+          </div>
+          <div class="section2_secondrow_secondcolumn">
+            <div class="section2_secondrow_secondcolumn_firstrow">
+              3
+            </div>
+            <div class="section2_secondrow_secondcolumn_secondrow">
+              5
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+SCSS
+--------------------------------------
+
+/*variables*/
+$width:100%;
+$height:100%;
+$font:bold;
+
+/*Mixin*/
+@mixin flex($align: center, $direction: row) {
+  display: flex;
+  justify-content: $align;
+  flex-direction: $direction;
+  align-items: center;
+}
+/*interpolation*/
+$c:"color";
+
+body {
+  @include flex;
+  color: #000;
+}
+.container {
+  @include flex(space-evenly);
+  width: 700px;
+  height: 300px;
+  border:10px solid #000;
+}
+.section1 {
+  @include flex;
+  background-#{$c}: #e65151;
+  width: 35%;
+  height: 90%;
+  font-weight:$font;
+}
+.section2 {
+  @include flex(space-between, column);
+  width: 55%;
+  height: 90%;
+  font-weight:$font;
+}
+.section2_firstrow {
+  @include flex;
+  background: #52dfa7;
+  width: $width;
+  height: 50%;
+ }
+.section2_secondrow {
+  @include flex(space-between, row);
+  width: $width;
+  height: $height;
+ }
+.section2_secondrow_firstcolumn {
+  @include flex;
+  background-#{$c}:#52dfa7;
+  width: 52%;
+  height: $height;
+}
+.section2_secondrow_secondcolumn {
+  @include flex(space-between, column);
+  width: 40%;
+  height: $height;
+  font-weight:$font;
+}
+.section2_secondrow_secondcolumn_firstrow{
+  @include flex;
+  background-#{$c}: #52dfa7;
+  width: $width;
+  height:65%;
+}
+.section1_firstrow_firstcolumn_firstrow{
+  @include flex;
+  background-#{$c}: #52dfa7;
+  width: $width;
+  height:20%;
+  margin-top:14px;
+}
+.section2_secondrow_secondcolumn_firstrow {
+  @include flex;
+  background-#{$c}: #52dfa7;
+  width: $width;
+  height:75%;
+  }
+.section2_secondrow_secondcolumn_secondrow {
+  @include flex;
+  background-#{$c}: #52dfa7;
+  width: $width;
+  height:20%;
+  }
+.section1_firstrow_firstcolumn_secondrow{
+   @include flex;
+  background-#{$c}: #52dfa7;
+  width: $width;
+  height:65%;
+  margin-bottom:1rem;
+}
